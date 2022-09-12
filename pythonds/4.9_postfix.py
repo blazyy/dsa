@@ -24,5 +24,29 @@ def infix_to_postfix(expr):
     return ' '.join(map(str, output)) 
 
 
+def eval_postfix(expr):
+    def do_math(op1, op2, operator):
+        if operator == '+':
+            return op1 + op2
+        elif operator == '-':
+            return op1 - op2
+        elif operator == '*':
+            return op1 * op2
+        elif operator == '/':
+            return op1 / op2
+    stack = Stack()
+    for char in expr:
+        if char == ' ':
+            continue
+        elif char in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789':
+            stack.push(char)
+        else:
+            op2, op1 = int(stack.pop()), int(stack.pop())
+            new_num = do_math(op1, op2, char)
+            stack.push(new_num)
+    return stack.pop()
+
+
 print(infix_to_postfix("A * B + C * D"))
 print(infix_to_postfix("( A + B ) * C - ( D - E ) * ( F + G )"))
+print(eval_postfix('7 8 + 3 2 + /'))
