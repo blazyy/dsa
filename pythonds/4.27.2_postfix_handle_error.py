@@ -4,6 +4,11 @@ from stack import Stack
 A valid postfix expression will have:
 1) n operators with n + 1 operands.
 2) first two elements which are operands followed by an operator
+We can check the first condition using a counter.
+The second condition can be validated using an if condition. When an operator
+is seen and there aren't 2 operands, break code immediately, return false.
+We only need to check for operators in the 2nd condition here because operands
+are taken into account by the counter.
 '''
 
 def eval_postfix_handle_error(expr):

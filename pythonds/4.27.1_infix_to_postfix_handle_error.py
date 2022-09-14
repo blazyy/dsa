@@ -1,6 +1,14 @@
 from operator import is_
 from stack import Stack
 
+'''
+Just using another stack to check if parentheses are balanced 
+This will of course come with the caveat of extra memory. Another
+solution is to go through the expression once, check if parentheses are 
+balanced before doing anything. The time complexity for this is O(2n).
+We can reuse the same stack.
+'''
+
 def infix_to_postfix_handle_error(expr):
     stack = Stack()
     balance_check_stack = Stack()
