@@ -21,7 +21,7 @@ def direct_infix_evaluator(expr):
     operator_stack = Stack()
     precedence = {'*': 3, '/': 3, '+': 2, '-': 2}
     digit_seen = False
-    for char in expr:
+    for char in expr: 
         if char == ' ':
             digit_seen = False
             continue
