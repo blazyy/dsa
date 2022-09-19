@@ -32,7 +32,6 @@ def evaluate_pn(expression):
         '/': lambda y, x: x / y,
         '*': lambda y, x: x * y,
     }
-
     for token in expression:
         results.append(token)
         if len(results) == 3:
